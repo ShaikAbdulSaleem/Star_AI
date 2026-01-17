@@ -1,1 +1,19 @@
+{
+  "name": "star-ai",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev:backend": "npm run dev --prefix packages/backend",
+    "dev:frontend": "npm run dev --prefix packages/frontend",
+    "dev": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\"",
+    "build:backend": "npm run build --prefix packages/backend",
+    "build:frontend": "npm run build --prefix packages/frontend",
+    "build": "npm run build:backend && npm run build:frontend",
+    "lint": "npm run lint --prefix packages/frontend",
+    "start": "npm run start --prefix packages/backend"
+  },
+  "dependencies": {
+    "concurrently": "^9.1.2"
+  }
+}
 
