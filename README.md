@@ -1,24 +1,25 @@
-# Node
-**/node_modules
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-pnpm-lock.yaml
+# Star AI
 
-# Builds
-packages/backend/dist
-packages/frontend/dist
+AI-assisted platform to connect startup **innovators** and **investors**, analyze ideas, highlight risk, and collaborate via chat, milestones, and basic video.
 
-# Env
-*.env
-*.env.local
-.env
-.env.*
+## Tech stack
 
-# OS / editor
-.DS_Store
-Thumbs.db
-.idea
-.vscode
-*.swp
+- Backend: Node.js, Express, MongoDB, JWT, Socket.IO  
+- Frontend: React + Vite, React Router, Tailwind CSS, Socket.IO client  
+- Infra: Docker Compose for Mongo + backend + frontend
 
+## Monorepo structure
+
+- `packages/backend` – Express API, auth, matching, chat, milestones, insights  
+- `packages/frontend` – React SPA (dashboard, chat, matching, collaboration)
+
+## Local development
+
+```bash
+# install root + app deps
+npm install
+cd packages/backend && npm install
+cd ../frontend && npm install
+
+# from repo root
+npm run dev
