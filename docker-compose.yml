@@ -1,1 +1,39 @@
+version: "3.9"
+
+services:
+  mongo:
+    image: mongo:7
+    container_name: starai-mongo
+    restart: unless-stopped
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+
+  backend:
+    build:
+      context: .
+      dockerfile: packages/backend/Dockerfile
+    container_name: starai-backend
+    restart: unless-stopped
+    env_file:
+      - packages/backend/.env
+    depends_on:
+      - mongo
+    ports:
+      - "5000:5000"
+
+  frontend:
+    build:
+      context: .
+      dockerfile: packages/frontend/Dockerfile
+    container_name: starai-frontend
+    restart: unless-stopped
+    depends_on:
+      - backend
+    ports:
+      - "5173:5173"
+
+volumes:
+  mongo_data:
 
